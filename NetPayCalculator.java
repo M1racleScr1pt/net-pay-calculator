@@ -1,73 +1,114 @@
-import java.util.Scanner; // Import Scanner class for reading user input from the console
-
 /**
- * Net Pay Calculator - COS 211 Project Author: Miracle Omokaro Date: January 2026
- * 
- * This program calculates an employee's net pay based on hours worked, hourly wage, and tax rate.
- * It demonstrates core Java fundamentals: input handling, arithmetic operations, and formatted
- * output.
+ * Net Pay Calculator
+ *
+ * Personal implementation for COS 211 (Introduction to Programming II). Sophomore year,
+ * Cybersecurity program.
+ *
+ * This program reads three floating-point values from standard input, performs payroll
+ * calculations, and prints formatted results to standard output.
+ *
+ * Design: Single class, single method. No abstraction layers. Reason: The problem is small and
+ * self-contained. Extra classes would add complexity without benefit. Code should be obvious and
+ * maintainable.
+ *
+ * Author: Miracle Omokaro GitHub: @M1racleScr1pt Date: January 2026 JDK: 25
  */
-public class NetPayCalculator { // Public class declaration - the "Open Border" for the JVM
+import java.util.Scanner; // import keyword: tells the compiler to include definitions from another
+                          // package.
+                          // java: the core Java platform package.
+                          // util: sub-package containing general utility classes.
+                          // Scanner: concrete class for parsing primitive types and strings from
+                          // input streams.
+                          // . : package separator (hierarchical access).
+                          // ; : terminates the import declaration.
+                          // Specific import chosen over wildcard (*) to prevent namespace pollution
+                          // and improve readability.
 
-    // Part 2: The famous main method - the heart of every Java application
-    public static void main(String[] args) { // The entry point: public static void main(String[]
-                                             // args)
+public class NetPayCalculator { // public: access modifier — class is visible to the JVM and other
+                                // classes.
+                                // class: keyword declaring a new reference type.
+                                // NetPayCalculator: identifier — must exactly match the source
+                                // filename (case-sensitive).
+                                // { : opens the class declaration block.
+                                // All members (fields, methods) between this { and the matching }
+                                // belong to this class.
 
-        // public (The Access Key): Tells the JVM, "You have permission to turn this specific key to
-        // start the engine."
-        // Without 'public', the JVM couldn't access this method from outside the class.
+    public static void main(String[] args) { // Method declaration — the program entry point.
+                                             // public: JVM requires public access to invoke it.
+                                             // static: method belongs to the class itself, not to
+                                             // instances — allows invocation without object
+                                             // creation.
+                                             // void: return type — method returns no value.
+                                             // main: exact identifier required by the JVM
+                                             // specification as entry point.
+                                             // ( : opens parameter list.
+                                             // String[]: array type of String objects.
+                                             // args: parameter name (conventional, short for
+                                             // "arguments") — unused in this implementation.
+                                             // ): closes parameter list.
+                                             // { : opens method body.
 
-        // static (The Protocol Breaker): Great analogy! Normally, you need an object (the house)
-        // to use a method (the kitchen). 'static' lets the JVM use the "kitchen" immediately
-        // before the "house" is even built. No object required — direct access.
+        Scanner input = new Scanner(System.in); // Local variable declaration and initialization.
+                                                // Scanner: reference type from java.util.
+                                                // input: identifier (chosen for clarity).
+                                                // = : assignment operator.
+                                                // new: keyword that allocates an object on the heap
+                                                // and invokes constructor.
+                                                // Scanner(...): constructor call.
+                                                // System.in: static field of System class
+                                                // representing standard input stream (keyboard).
+                                                // ; : terminates the statement.
 
-        // void (The One-Way Task): Perfect. It means the method does its job and returns nothing
-        // back.
-        // We're printing to console, not handing data to another method.
-
-        // main (The ID): This is the exact name the JVM looks for. It must match the filename
-        // (NetPayCalculator.java)
-        // for the compiler to find and run it.
-
-        // String[] (The Data Format): Ensures everything coming in from the command line is treated
-        // as text.
-
-        // args (The Nickname/Storage Box): Standard variable name for command-line arguments.
-        // It's an array — can hold multiple pieces of data at once. We don't use it here,
-        // but keeping the signature exact is mandatory.
-
-        // Create a Scanner object to read input from the console (System.in)
-        Scanner scanner = new Scanner(System.in);
-
-        // Prompt and read hours worked
         System.out.print("Enter hours worked: ");
-        double hours = scanner.nextDouble(); // nextDouble() reads a decimal number
+        double hours = input.nextDouble(); // double: primitive 64-bit floating-point type (IEEE
+                                           // 754).
+                                           // hours: identifier.
+                                           // = : assignment.
+                                           // input.nextDouble(): instance method call — blocks
+                                           // until valid double is entered, parses it, returns
+                                           // value.
+                                           // ; : end of statement.
 
-        // Prompt and read hourly wage
-        System.out.print("Enter hourly wage (₦): ");
-        double wage = scanner.nextDouble();
+        System.out.print("Enter hourly wage ($): ");
+        double wage = input.nextDouble();
 
-        // Prompt and read tax rate (as decimal, e.g., 0.20 for 20%)
-        System.out.print("Enter tax rate (e.g., 0.20 for 20%): ");
-        double taxRate = scanner.nextDouble();
+        System.out.print("Enter tax rate in percent (e.g., 20 for 20% tax): ");
+        double taxRatePercent = input.nextDouble(); // User enters tax rate as whole percentage
+                                                    // number (e.g., 20 for 20%).
+                                                    // Stored as percent for direct display — no
+                                                    // conversion needed there.
 
-        // Core calculations
-        double grossPay = hours * wage; // Total earnings before tax
-        double tax = grossPay * taxRate; // Amount deducted as tax
-        double netPay = grossPay - tax; // Final take-home pay
+        // Convert percentage to decimal fraction for accurate calculation
+        // Example: user enters 20 → taxRate = 0.20
+        double taxRate = taxRatePercent / 100.0; // Division by 100.0 (double) ensures
+                                                 // floating-point result.
+                                                 // Reason: direct multiplication in tax calculation
+                                                 // without risk of integer truncation.
 
-        // Display results with clean, formatted currency output
+        double grossPay = hours * wage; // Arithmetic expression.
+                                        // * : multiplication operator.
+
+        double taxAmount = grossPay * taxRate; // Tax calculation using decimal rate.
+
+        double netPay = grossPay - taxAmount; // - : subtraction operator.
+
         System.out.println("\n--- Payroll Summary ---");
-        System.out.printf("Gross Pay : ₦%,.2f%n", grossPay); // %, adds comma separator, .2f = 2
-                                                             // decimals
-        System.out.printf("Tax (%.0f%%): ₦%,.2f%n", taxRate * 100, tax); // Show tax rate as
-                                                                         // percentage
-        System.out.printf("Net Pay   : ₦%,.2f%n", netPay);
 
-        // Good practice: close the scanner to free resources
-        scanner.close();
+        // Formatted output using printf for precise control.
+        // $ symbol used for universal console compatibility.
+        // Tax rate displayed directly as whole number from user input (no decimal, no extra
+        // multiplication).
+        System.out.printf("Gross Pay : $%,.2f%n", grossPay);
+        System.out.printf("Tax (%d%%): $%,.2f%n", (int) taxRatePercent, taxAmount); // (int) cast
+                                                                                    // ensures clean
+                                                                                    // whole number
+                                                                                    // display
+        System.out.printf("Net Pay   : $%,.2f%n", netPay);
 
-        // Optional: A personal note reflecting the learning journey
-        System.out.println("\nBuilt by Miracle Omokaro learning, and documenting.");
-    }
-}
+        input.close(); // Instance method call.
+                       // Closes the underlying InputStream and releases system resources.
+                       // Required for good resource management, even in small programs.
+
+    } // Closes main method body — execution ends here (implicit return to JVM)
+
+} // Closes class body
