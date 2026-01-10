@@ -1,7 +1,7 @@
 /**
  * Net Pay Calculator
  *
- * Personal implementation for COS 211 (Introduction to Programming II). Sophomore year,
+ * Personal implementation for Introduction to Programming II (COS 211). Sophomore year,
  * Cybersecurity program.
  *
  * This program reads three floating-point values from standard input, performs payroll
