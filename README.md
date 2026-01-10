@@ -33,10 +33,9 @@ I had the opportunity to lead this project for my assigned group. The experience
 - **IDE**: Visual Studio Code
 - **Version Control**: Git & GitHub
 
-### 🔍 Interactive Demo Animation
+### 🔍 Live Demo Animation
 
-<img src="https://raw.githubusercontent.com/M1racleScr1pt/net-pay-calculator/main/assets/demo.gif" alt="Net Pay Calculator Demo Animation" width="700"/>
-
+<img src="assets/demo.gif" alt="Net Pay Calculator Demo" width="800"/>
 *(A short screen recording showing the program in action — input prompts, calculation, and formatted output.)*
 
 ### 🌱 What I Learned & Next Steps
