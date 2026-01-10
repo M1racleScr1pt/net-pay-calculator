@@ -36,7 +36,7 @@ I had the opportunity to lead this project for my assigned group. The experience
 ### 🔍 Live Demo Animation
 
 <img src="assets/demo.gif" alt="Net Pay Calculator Demo" width="800"/>
-*(A short screen recording showing the program in action — input prompts, calculation, and formatted output.)*
+<p align="center"><em><strong>A short screen recording showing the program in action — input prompts, calculation, and formatted output.</strong></em></p>
 
 ### 🌱 What I Learned & Next Steps
 This project wasn’t just coursework — it was a milestone in translating real-world problems into structured, maintainable code. It reinforced clean coding practices and deepened my appreciation for readable, purposeful programs. Moving forward, I'm excited to explore Java's object-oriented features while continuing to strengthen my C foundation.
