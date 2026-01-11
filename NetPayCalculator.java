@@ -24,29 +24,51 @@ import java.util.Scanner; // import keyword: tells the compiler to include defin
                           // Specific import chosen over wildcard (*) to prevent namespace pollution
                           // and improve readability.
 
-public class NetPayCalculator { // public: access modifier — class is visible to the JVM and other
-                                // classes.
-                                // class: keyword declaring a new reference type.
-                                // NetPayCalculator: identifier — must exactly match the source
-                                // filename (case-sensitive).
-                                // { : opens the class declaration block.
-                                // All members (fields, methods) between this { and the matching }
-                                // belong to this class.
+public class NetPayCalculator { // public class NetPayCalculator { : Class declaration - defines a
+                                // new class.
 
-    public static void main(String[] args) { // Method declaration — the program entry point.
-                                             // public: JVM requires public access to invoke it.
-                                             // static: method belongs to the class itself, not to
-                                             // instances — allows invocation without object
-                                             // creation.
-                                             // void: return type — method returns no value.
-                                             // main: exact identifier required by the JVM
-                                             // specification as entry point.
-                                             // ( : opens parameter list.
-                                             // String[]: array type of String objects.
-                                             // args: parameter name (conventional, short for
-                                             // "arguments") — unused in this implementation.
-                                             // ): closes parameter list.
-                                             // { : opens method body.
+    // public: This is an access modifier. It tells the compiler that this class can be seen
+    // and used by any other part of the program, or even by external tools like the
+    // Java Virtual Machine - a core component that runs Java programs by translating
+    // platform-independent bytecode into native machine code for any operating system,
+    // enabling Java's "Write Once, Run Anywhere" (WORA) capability, managing memory (garbage
+    // collection),
+    // and providing a consistent runtime environment for Java and other JVM languages like Kotlin.
+    // It loads, verifies, links, and executes compiled Java class files, making Java applications
+    // portable - itself.
+
+    // class: This is a keyword that tells Java you are about to define a new class,
+    // which is a blueprint - a Class in Object-Oriented Programming (OOP)—a template defining
+    // attributes (data) and
+    // methods (behavior) to create individual objects (instances) like cars, bank accounts, or UI
+    // elements for creating
+    // objects that encapsulate data and behavior.
+
+    // NetPayCalculator: This is simply the name of your class, specifically called an identifier,
+    // chosen by the programmer, which in this case, is NetPayCalculator.
+    // By convention, it is usually named Main if it holds the starting point of the program.
+    // It should start with an uppercase letter and use CamelCase for readability.
+    // it must match the filename (NetPayCalculator.java) exactly, including case sensitivity.
+
+    // { : This is the opening brace that marks the beginning of the class body, which contains all
+    // the code that defines the class's behavior and data. .
+
+    public static void main(String[] args) { // public static void main(String[] args) { : Method
+                                             // declaration — the program entry point.
+
+        // public: JVM requires public access to invoke it.
+        // static: method belongs to the class itself, not to
+        // instances — allows invocation without object
+        // creation.
+        // void: return type — method returns no value.
+        // main: exact identifier required by the JVM
+        // specification as entry point.
+        // ( : opens parameter list.
+        // String[]: array type of String objects.
+        // args: parameter name (conventional, short for
+        // "arguments") — unused in this implementation.
+        // ) : closes parameter list.
+        // { : This is the executable part of the method — method's body starts here.
 
         Scanner input = new Scanner(System.in); // Local variable declaration and initialization.
                                                 // Scanner: reference type from java.util.
@@ -112,3 +134,4 @@ public class NetPayCalculator { // public: access modifier — class is visible 
     } // Closes main method body — execution ends here (implicit return to JVM)
 
 } // Closes class body
+
